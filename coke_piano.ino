@@ -24,7 +24,7 @@ bool cs_4_3_touched;
 
 void setup() 
 {
-  // set up serial communication and calibrate sensors
+//   set up serial communication and calibrate sensors
   Serial.begin(19200);
    cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);
    cs_4_3.set_CS_AutocaL_Millis(0xFFFFFFFF);  
@@ -51,7 +51,7 @@ void setup()
 void loop() {
   if(Serial.available() >= 0) 
   {
-    // Measure the sensors
+//     Measure the sensors
     long total_2 = cs_4_2.capacitiveSensor(30);
 //    Serial.println(total_2);
     
@@ -74,7 +74,8 @@ void loop() {
 //    long total_18 = cs_4_18.capacitiveSensor(30);
   
   
-  //check if a sensor has been touched and send the corresponding index through serial to the .py script
+//  check if a sensor has been touched and send the corresponding index through serial to the .py script
+//  if the sensor remains touched no following signals are sent
 
   if (total_2 > 500 && cs_4_2_touched == false){Serial.println(0); cs_4_2_touched = true;}
   else if (total_2 < 500 && cs_4_2_touched == true){cs_4_2_touched = false;}
