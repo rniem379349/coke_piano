@@ -94,32 +94,5 @@ void loop() {
 //  if (total_16 > 60){Serial.write(13); delay(10);}
 //  if (total_17 > 60){Serial.write(14); delay(10);}
 //  if (total_18 > 60){Serial.write(15); delay(10);}
-//  delay(250);
   }
-<<<<<<< HEAD
-}
-
-void send() {
-	if (millis()>time+timedelta && amount>0){
-		Serial.println(pop());
-		first = count_pos(first);
-		time = millis();
-	}
-}
-
-int count_pos(int current) {
-	return (current++)%10;
-}
-
-void push(int data) {
-	last = count_pos(last);
-	data_tab[last] = data;
-	amount++;
-}
-
-int pop() {
-	amount--;
-	return data_tab[first];
-=======
->>>>>>> origin/master
 }
