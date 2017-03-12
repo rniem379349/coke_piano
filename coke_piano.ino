@@ -31,7 +31,7 @@ void setup()
 	time = millis();
 	timedelta = 50;
   // set up serial communication and calibrate sensors
-  Serial.begin(115200);
+  Serial.begin(19200);
    cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);
    cs_4_3.set_CS_AutocaL_Millis(0xFFFFFFFF);  
 //   cs_4_5.set_CS_AutocaL_Millis(0xFFFFFFFF);
@@ -108,7 +108,7 @@ void send() {
 }
 
 int count_pos(int current) {
-	return (current++)%10
+	return (current++)%10;
 }
 
 void push(int data) {
