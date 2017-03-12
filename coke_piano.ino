@@ -18,20 +18,14 @@ CapacitiveSensor   cs_4_3 = CapacitiveSensor(4,3);
 //CapacitiveSensor   cs_4_17 = CapacitiveSensor(4,17);
 //CapacitiveSensor   cs_4_18 = CapacitiveSensor(4,18);
 
-int data_tab[16];
-unsigned long time;
-unsigned long timedelta;
-int first = 0;
-int last = -1;
-int amount = 0;
-
+//boolean values showing if a sensor has been touched
+bool cs_4_2_touched;
+bool cs_4_3_touched;
 
 void setup() 
 {
-	time = millis();
-	timedelta = 50;
   // set up serial communication and calibrate sensors
-  Serial.begin(115200);
+  Serial.begin(19200);
    cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);
    cs_4_3.set_CS_AutocaL_Millis(0xFFFFFFFF);  
 //   cs_4_5.set_CS_AutocaL_Millis(0xFFFFFFFF);
@@ -48,10 +42,13 @@ void setup()
 //   cs_4_16.set_CS_AutocaL_Millis(0xFFFFFFFF); 
 //   cs_4_17.set_CS_AutocaL_Millis(0xFFFFFFFF);
 //   cs_4_18.set_CS_AutocaL_Millis(0xFFFFFFFF); 
+
+//  initialize sensor touched flags as false
+    cs_4_2_touched = false;
+    cs_4_3_touched = false;
 }
 
 void loop() {
-
   if(Serial.available() >= 0) 
   {
     // Measure the sensors
@@ -79,8 +76,10 @@ void loop() {
   
   //check if a sensor has been touched and send the corresponding index through serial to the .py script
 
-  if (total_2 > 500){push(0);}
-  if (total_3 > 500){push(1);} // and so on...  
+  if (total_2 > 500 && cs_4_2_touched == false){Serial.println(0); cs_4_2_touched = true;}
+  else if (total_2 < 500 && cs_4_2_touched == true){cs_4_2_touched = false;}
+  if (total_3 > 500 && cs_4_3_touched == false){Serial.println(1); cs_4_3_touched = true;}
+  else if (total_3 < 500 && cs_4_3_touched == true){cs_4_3_touched = false;}
 //  if (total_5 > 60){Serial.write(2); delay(10);}
 //  if (total_6 > 60){Serial.write(3); delay(10);}
 //  if (total_7 > 60){Serial.write(4); delay(10);}
@@ -95,29 +94,6 @@ void loop() {
 //  if (total_16 > 60){Serial.write(13); delay(10);}
 //  if (total_17 > 60){Serial.write(14); delay(10);}
 //  if (total_18 > 60){Serial.write(15); delay(10);}
-	send();
+//  delay(250);
   }
-}
-
-void send() {
-	if (millis()>time+timedelta && amount>0){
-		Serial.println(pop());
-		first = count_pos(first);
-		time = millis();
-	}
-}
-
-int count_pos(int current) {
-	return (current++)%10
-}
-
-void push(int data) {
-	last = count_pos(last);
-	data_tab[last] = data;
-	amount++;
-}
-
-int pop() {
-	amount--;
-	return data_tab[first];
 }
