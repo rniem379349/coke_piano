@@ -7,13 +7,17 @@
 
 import serial
 import mido
+import sys
 
 if __name__ == "__main__":
     # initialize mido lib for output
     out = mido.open_output()
 
     # initialize serial connection to the arduino port
-    serial_port = "com3"
+    try:
+        serial_port = "com{}".format(sys.argv[1])
+    except IndexError:
+        serial_port = "com3"
     with serial.Serial(serial_port, 19200) as ser:
         while(1):
             val = ser.readline()
