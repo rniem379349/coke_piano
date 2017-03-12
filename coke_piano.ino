@@ -21,10 +21,24 @@ CapacitiveSensor   cs_4_3 = CapacitiveSensor(4,3);
 //boolean values showing if a sensor has been touched
 bool cs_4_2_touched;
 bool cs_4_3_touched;
+bool cs_4_5_touched;
+bool cs_4_6_touched;
+bool cs_4_7_touched;
+bool cs_4_8_touched;
+bool cs_4_9_touched;
+bool cs_4_10_touched; 
+bool cs_4_11_touched;
+bool cs_4_12_touched;
+bool cs_4_13_touched;
+bool cs_4_14_touched;
+bool cs_4_15_touched;
+bool cs_4_16_touched;
+bool cs_4_17_touched;
+bool cs_4_18_touched;
 
 void setup() 
 {
-//   set up serial communication and calibrate sensors
+  // set up serial communication and calibrate sensors
   Serial.begin(19200);
    cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF);
    cs_4_3.set_CS_AutocaL_Millis(0xFFFFFFFF);  
@@ -46,12 +60,26 @@ void setup()
 //  initialize sensor touched flags as false
     cs_4_2_touched = false;
     cs_4_3_touched = false;
+    cs_4_5_touched = false;
+    cs_4_6_touched = false;
+    cs_4_7_touched = false;
+    cs_4_8_touched = false;
+    cs_4_9_touched = false;
+    cs_4_10_touched = false; 
+    cs_4_11_touched = false;
+    cs_4_12_touched = false;
+    cs_4_13_touched = false;
+    cs_4_14_touched = false;
+    cs_4_15_touched = false;
+    cs_4_16_touched = false;
+    cs_4_17_touched = false;
+    cs_4_18_touched = false;
 }
 
 void loop() {
   if(Serial.available() >= 0) 
   {
-//     Measure the sensors
+    // Measure the sensors
     long total_2 = cs_4_2.capacitiveSensor(30);
 //    Serial.println(total_2);
     
@@ -74,26 +102,41 @@ void loop() {
 //    long total_18 = cs_4_18.capacitiveSensor(30);
   
   
-//  check if a sensor has been touched and send the corresponding index through serial to the .py script
-//  if the sensor remains touched no following signals are sent
+  //check if a sensor has been touched and send the corresponding index through serial to the .py script
 
   if (total_2 > 500 && cs_4_2_touched == false){Serial.println(0); cs_4_2_touched = true;}
   else if (total_2 < 500 && cs_4_2_touched == true){cs_4_2_touched = false;}
   if (total_3 > 500 && cs_4_3_touched == false){Serial.println(1); cs_4_3_touched = true;}
   else if (total_3 < 500 && cs_4_3_touched == true){cs_4_3_touched = false;}
-//  if (total_5 > 60){Serial.write(2); delay(10);}
-//  if (total_6 > 60){Serial.write(3); delay(10);}
-//  if (total_7 > 60){Serial.write(4); delay(10);}
-//  if (total_8 > 60){Serial.write(5); delay(10);}
-//  if (total_9 > 60){Serial.write(6); delay(10);}
-//  if (total_10 > 60){Serial.write(7); delay(10);}
-//  if (total_11 > 60){Serial.write(8); delay(10);}
-//  if (total_12 > 60){Serial.write(9); delay(10);}
-//  if (total_13 > 60){Serial.write(10); delay(10);}
-//  if (total_14 > 60){Serial.write(11); delay(10);}
-//  if (total_15 > 60){Serial.write(12); delay(10);}
-//  if (total_16 > 60){Serial.write(13); delay(10);}
-//  if (total_17 > 60){Serial.write(14); delay(10);}
-//  if (total_18 > 60){Serial.write(15); delay(10);}
+  if (total_5 > 500 && cs_4_5_touched == false){Serial.println(1); cs_4_5_touched = true;}
+  else if (total_5 < 500 && cs_4_5_touched == true){cs_4_5_touched = false;}
+  if (total_6 > 500 && cs_4_6_touched == false){Serial.println(1); cs_4_6_touched = true;}
+  else if (total_6 < 500 && cs_4_6_touched == true){cs_4_6_touched = false;}
+  if (total_7 > 500 && cs_4_7_touched == false){Serial.println(1); cs_4_7_touched = true;}
+  else if (total_7 < 500 && cs_4_7_touched == true){cs_4_7_touched = false;}
+  if (total_8 > 500 && cs_4_8_touched == false){Serial.println(1); cs_4_8_touched = true;}
+  else if (total_8 < 500 && cs_4_8_touched == true){cs_4_8_touched = false;}
+  if (total_9 > 500 && cs_4_9_touched == false){Serial.println(1); cs_4_9_touched = true;}
+  else if (total_9 < 500 && cs_4_9_touched == true){cs_4_9_touched = false;}
+  if (total_10 > 500 && cs_4_10_touched == false){Serial.println(1); cs_4_10_touched = true;}
+  else if (total_10 < 500 && cs_4_10_touched == true){cs_4_10_touched = false;}
+  if (total_11 > 500 && cs_4_11_touched == false){Serial.println(1); cs_4_11_touched = true;}
+  else if (total_11 < 500 && cs_4_11_touched == true){cs_4_11_touched = false;}
+  if (total_12 > 500 && cs_4_12_touched == false){Serial.println(1); cs_4_12_touched = true;}
+  else if (total_12 < 500 && cs_4_12_touched == true){cs_4_12_touched = false;}
+  if (total_13 > 500 && cs_4_13_touched == false){Serial.println(1); cs_4_13_touched = true;}
+  else if (total_13 < 500 && cs_4_13_touched == true){cs_4_13_touched = false;}
+  if (total_14 > 500 && cs_4_14_touched == false){Serial.println(1); cs_4_14_touched = true;}
+  else if (total_14 < 500 && cs_4_14_touched == true){cs_4_14_touched = false;}
+  if (total_15 > 500 && cs_4_15_touched == false){Serial.println(1); cs_4_15_touched = true;}
+  else if (total_15 < 500 && cs_4_15_touched == true){cs_4_15_touched = false;}
+  if (total_16 > 500 && cs_4_16_touched == false){Serial.println(1); cs_4_16_touched = true;}
+  else if (total_16 < 500 && cs_4_16_touched == true){cs_4_16_touched = false;}
+  if (total_17 > 500 && cs_4_17_touched == false){Serial.println(1); cs_4_17_touched = true;}
+  else if (total_17 < 500 && cs_4_17_touched == true){cs_4_17_touched = false;}
+  if (total_18 > 500 && cs_4_18_touched == false){Serial.println(1); cs_4_18_touched = true;}
+  else if (total_18 < 500 && cs_4_18_touched == true){cs_4_18_touched = false;}
+
+//  delay(250);
   }
 }
