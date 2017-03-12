@@ -71,19 +71,19 @@ void loop() {
 
   if (total_2 > 500){Serial.println(0); delay(250);}
   if (total_3 > 500){Serial.println(1); delay(250);}
-//  if (total_5 > 60){Serial.write("s\n"); delay(10);}
-//  if (total_6 > 60){Serial.write("e\n"); delay(10);}
-//  if (total_7 > 60){Serial.write("d\n"); delay(10);}
-//  if (total_8 > 60){Serial.write("f\n"); delay(10);}
-//  if (total_9 > 60){Serial.write("t\n"); delay(10);}
-//  if (total_10 > 60){Serial.write("g\n"); delay(10);}
-//  if (total_11 > 60){Serial.write("y\n"); delay(10);}
-//  if (total_12 > 60){Serial.write("h\n"); delay(10);}
-//  if (total_13 > 60){Serial.write("u\n"); delay(10);}
-//  if (total_14 > 60){Serial.write("j\n"); delay(10);}
-//  if (total_15 > 60){Serial.write("k\n"); delay(10);}
-//  if (total_16 > 60){Serial.write("o\n"); delay(10);}
-//  if (total_17 > 60){Serial.write("l\n"); delay(10);}
-//  if (total_18 > 60){Serial.write("p\n"); delay(10);}
+//  if (total_5 > 60){Serial.write(2); delay(10);}
+//  if (total_6 > 60){Serial.write(3); delay(10);}
+//  if (total_7 > 60){Serial.write(4); delay(10);}
+//  if (total_8 > 60){Serial.write(5); delay(10);}
+//  if (total_9 > 60){Serial.write(6); delay(10);}
+//  if (total_10 > 60){Serial.write(7); delay(10);}
+//  if (total_11 > 60){Serial.write(8); delay(10);}
+//  if (total_12 > 60){Serial.write(9); delay(10);}
+//  if (total_13 > 60){Serial.write(10); delay(10);}
+//  if (total_14 > 60){Serial.write(11); delay(10);}
+//  if (total_15 > 60){Serial.write(12); delay(10);}
+//  if (total_16 > 60){Serial.write(13); delay(10);}
+//  if (total_17 > 60){Serial.write(14); delay(10);}
+//  if (total_18 > 60){Serial.write(15); delay(10);}
   }
 }
