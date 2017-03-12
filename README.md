@@ -8,7 +8,7 @@ The arduino script initializes 16 capacitive sensors, which are connected to sep
 - Arduino board (preferrably Uno)
 - Arduino IDE with the Capacitive library installed (http://www.arduino.org/learning/reference/Capacitive)
 - 16 conductive objects
-- 16 1M resistors
+- 16 1M Ohm resistors
 - wiring
 - Python 2.7 with the following installed libraries:
   . pySerial (https://pyserial.readthedocs.io/en/latest/pyserial.html)
